@@ -1,0 +1,49 @@
+#
+#server.port=8999
+#
+#eureka.instance.hostname=localhost
+#
+#spring.application.name=api-gateway
+#
+#spring.cloud.gateway.routes-id=user-service
+#
+#spring.cloud.gateway.routes-uri=lb://user-service
+#
+##spring.cloud.gateway.routes.
+
+
+spring:
+  application:
+    name: api-gateway
+    
+    
+server:
+  port: 8999
+
+
+eureka:
+  instance:
+     host-name: localhost
+     
+     
+     
+##GATEWAY CONFIGURATIONS
+  cloud:
+    gateway:
+      routes:
+        ## USER SERVICE
+        - id: internet-banking-user-service
+          uri: lb://internet-banking-user-service
+          predicates:
+            - Path=/user/**
+          filters:
+            - StripPrefix=1
+        ## FUND TRANSFER SERVICE
+        - id: internet-banking-fund-transfer-service
+          uri: lb://internet-banking-fund-transfer-service
+          predicates:
+            - Path=/fund-transfer/**
+          filters:
+            - StripPrefix=1
+
+      

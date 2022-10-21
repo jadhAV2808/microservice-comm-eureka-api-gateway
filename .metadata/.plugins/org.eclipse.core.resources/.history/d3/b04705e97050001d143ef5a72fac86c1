@@ -1,0 +1,36 @@
+package com.user.service;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+
+import com.user.models.User;
+
+@Service
+public class UserServiceImpl implements UserService{
+
+	
+	//fake user list
+/*	
+	List<User>list=List.of(
+			new User(1311l,"durgesh tiwari","23232443"),
+			new User(1312l,"ankit tiwari","23232443"),
+			new User(1314l,"seema","65444333")
+		
+			);
+*/	
+	
+	
+	
+	
+	
+	@Override
+	public User getUser(Long id) {
+		// TODO Auto-generated method stub
+		return this.list.stream()
+				.filter(user->user.getUserId().equals(id))
+				.findAny().orElse(null);
+	}
+
+}

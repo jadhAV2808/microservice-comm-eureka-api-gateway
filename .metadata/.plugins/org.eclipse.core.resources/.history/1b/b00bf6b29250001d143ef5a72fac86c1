@@ -1,0 +1,43 @@
+#
+#server.port=8999
+#
+#eureka.instance.hostname=localhost
+#
+#spring.application.name=api-gateway
+#
+#spring.cloud.gateway.routes-id=user-service
+#
+#spring.cloud.gateway.routes-uri=lb://user-service
+#
+##spring.cloud.gateway.routes.
+
+spring:
+  application:
+    name: api-gateway
+
+  ##GATEWAY CONFIGURATIONS
+  cloud:
+    gateway:
+      routes:
+        ## USER SERVICE
+        - id: user-service
+          uri: lb://user-service
+          predicates:
+            - Path=/user/**
+#          filters:
+#            - StripPrefix=1
+        ##  contact SERVICE
+        - id: contact-service
+          uri: lb://contact-service
+          predicates:
+            - Path=/contact/**
+#          filters:
+#            - StripPrefix=1
+
+server:
+  port: 8999
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8081/eureka

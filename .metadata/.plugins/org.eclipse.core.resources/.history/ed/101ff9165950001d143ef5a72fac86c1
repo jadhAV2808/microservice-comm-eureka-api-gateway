@@ -1,0 +1,20 @@
+package com.contact.service;
+
+import java.util.List;
+
+import com.contact.models.Contact;
+
+public class ContactServiceImpl implements ContactService{
+
+	
+	List<Contact>list=List.of(
+			new Contact()
+			);
+	
+	@Override
+	public List<Contact> getContactsOfUser(Long userId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

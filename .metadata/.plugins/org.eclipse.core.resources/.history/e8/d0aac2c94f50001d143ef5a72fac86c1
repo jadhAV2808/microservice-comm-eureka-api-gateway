@@ -1,0 +1,40 @@
+package com.user.models;
+
+import java.util.List;
+
+public class USer {
+
+	
+	private Long userId;
+	private String name;
+	private String phone;
+	
+	List<Contact>contacts;
+
+	public USer(Long userId, String name, String phone) {
+		super();
+		this.userId = userId;
+		this.name = name;
+		this.phone = phone;
+	}
+
+	public USer(Long userId, String name, List<Contact> contacts) {
+		super();
+		this.userId = userId;
+		this.name = name;
+		this.contacts = contacts;
+	}
+	
+	
+	public USer(){
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+}
+

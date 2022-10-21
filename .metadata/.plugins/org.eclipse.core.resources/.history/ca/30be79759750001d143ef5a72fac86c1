@@ -1,0 +1,24 @@
+server:
+  port: 8999
+  
+  
+spring:
+  application:
+    name: api-gateway
+    
+    
+    cloud:
+    gateway:
+      routes:
+        ## USER SERVICE
+        - id: user-service
+          uri: lb://user-service
+          predicates:
+            - Path=/user/**
+         
+        ## FUND TRANSFER SERVICE
+        - id: contact-service
+          uri: lb://contact-service
+          predicates:
+            - Path=/contact/**
+          

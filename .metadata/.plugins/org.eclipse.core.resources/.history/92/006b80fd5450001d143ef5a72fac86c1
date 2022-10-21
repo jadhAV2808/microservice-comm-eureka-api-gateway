@@ -1,0 +1,27 @@
+package com.user.service;
+
+import java.util.List;
+
+import com.user.models.User;
+
+public class UserServiceImpl implements UserService{
+
+	
+	//fake user list
+	
+	List<User>list=List.of(
+			new User(101,"poja","23232443"),
+			new User(102,"swati","23232443"),
+			new User(103,"seema","65444333"),
+			new User(104,"rama","887655332"),
+			new User(122,"ratan","434232324")
+			);
+	
+	
+	@Override
+	public User getUser(Long id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}
